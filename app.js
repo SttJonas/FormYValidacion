@@ -3,6 +3,23 @@ const form = document.getElementById("formulario");
 //se obtiene el contenedor donde se mostrarán los mensajes creados
 const contenedor = document.getElementById("alertaContenedor");
 
+// verificacion para que la contraseña tenga al menos una letra y un numero
+//  let tieneLetra = password.match(/[a-z A-Z]/g);
+//  let tieneNumero = password.match(/[0-9]/g);
+//  if (!tieneLetra || !tieneNumero) {
+//    mostrarMensaje();
+//    return; //se para el codigo si la evaluacion falla
+//  }
+
+function validarPassword(pass) {
+  if (!(pass.length >= 6 && /[A-Z]/.test(pass) && /[a-z]/.test(pass) && /[0-9]/.test(pass))) {
+    mostrarMensaje("la contraseña debe tener al menos 6 caracteres, una mayuscula, una minuscula y un numero");
+    return false;
+  }
+  return true;
+}
+
+
 //Se agrega un evento al formulario para que se ejecute cuando el usuario haga click 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -23,22 +40,23 @@ form.addEventListener("submit", function (e) {
   const edad = document.getElementById("edad").value;
 
   //validacion para que el nombre tnga al menos 3 letras
-  if (nombre.length < 3) {
+  let letras = nombre.match(/[a-zA-Z]/g);
+  if (!letras || letras.length < 3) {
     mostrarMensaje("El nombre debe tener al menos 3 letras");
     return; //se para el codigo si la evaluacion falla
   }
 
   //validacion para que el email tenga si o si "@" y "."
-  if (!email.includes("@") || !email.includes(".")) {
+  if (!email.match(/@/) || !email.match(/\./)) {
     mostrarMensaje("el email no tiene un formato correcto");
     return;
   }
 
-  //la contraseña debe tener como minimo 6 caracteres
-  if (password.length < 6) {
-    mostrarMensaje("la contraseña debe tener 6 caracteres o más");
-    return; //se para el codigo si la evaluacion falla
-  }
+  //validacion de la contraseña
+  //se llama a la funcion validarPassword para verificar que la contraseña cumpla con los requisitos
+  if (!validarPassword(password)) {
+  return; //se para el código si la validación falla
+}
 
   //validacion para que la contraseña y la confirmacion sean iguales 
   if (password !== confirmar) {
