@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Semestral/Css/Style.css">
 </head>
 <body>
-   <div>
-    <form id="formulario">
-      <label>Nombre: </label>
-      <input type="text" id="nombre" maxlength="10" required />
+    <div class="contenedor-principal">
+        <header>
+            <h1>
+                Rock Fest
+            </h1>
+            <nav>
+                    <a href="">
+                        Inicio
+                    </a>
+                    <a href="">
+                        Entradas
+                    </a>
+                    <a href="">
+                        Contacto
+                    </a>
+            </nav>
+        </header>
 
-      <label>Email:</label>
-      <input type="email" id="email" required />
-
-      <label>Contraseña:</label>
-      <input type="password" id="password" required />
-
-      <label>Confirmar Contraseña:</label>
-      <input type="password" id="confirmaPassword" required />
-
-      <label>Edad:</label>
-      <input type="number" id="edad" required />
-
-      <input type="submit" value="Registrarse" />
-    </form>
-    <div id="alertaContenedor"></div>
-  </div>
-
-  <script src="app.js"></script>
+        <div class="contenedor-tarjeta">
+            <section class="tarjeta">
+            <form action="" id="formularioLogin">
+                <h2>Reserva 2025</h2>
+                <div class="campo">
+                    <label for="">Nombre</label>
+                    <input type="text" name="Nombre" id="Nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="">Cantidad de entradas</label>
+                    <input type="number" name="cantidad" id="cantidad" required>
+                </div>
+                <div class="campo">
+                    <label for="">Tipo de entrada</label>
+                    <input type="text" name="entrada" id="entradas" required>
+                </div>
+                <div class="campo">
+                    <label for="">Código de descuento</label>
+                    <input type="text"  name="descuento" id="descuento" required>
+                </div>
+                <button type="button" class="btn-total" id="btntotal">Calcular Total</button>
+            </form>
+        </section>
+        </div>
+    </div>
+    <script src="/Semestral/Js/app.js"></script>
 </body>
 </html>
